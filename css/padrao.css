@@ -1,0 +1,146 @@
+.bodyLogin{
+    background-color: #EE0000;
+    height: 100%;
+    margin: 0px;
+}
+
+.linhaLogin{
+    height: 100%;
+}
+
+.cardLogin{
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+}
+
+.alinhaCentro{
+    position: relative;
+    top: 50% !important;
+    transform: translateY(-50%); 
+}
+
+.form-group .form-control{
+    border-radius: 10px;
+}
+
+.btnRed{
+    background-color: #EE0000;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+}
+
+.btnRed:hover{
+    background-color: white;
+    color: #EE0000;
+    border-color: #EE0000;
+}
+
+.link{
+    color: #EE0000;
+    font-weight: bold;
+}
+
+.link:hover{
+    color: #EE0000;
+}
+
+.divImg{
+    width: 1080px;
+    height: 1920px;
+    display: none;
+}
+
+.divImgPadrao{
+    position: absolute;
+    width: 1080px;
+    height: 1920px;
+    z-index: -999;
+}
+
+.divImgPessoa{
+    z-index: -1000;
+    position: absolute;
+}
+
+.fotoPessoaImg{
+    position: relative;
+    left: 166px;
+    top: 393px;
+}
+
+.nomeImg{
+    position: relative;
+    left: 200px;
+    top: 1060px;
+    font-size: 35px;
+    text-transform: uppercase; 
+    font-weight: bold;
+    color: yellow;
+}
+
+.enderecoImg{
+    position: relative;
+    left: 200px;
+    top: 1060px;
+    font-size: 25px;
+    text-transform: uppercase; 
+    font-weight: bold;
+    color: white;
+}
+
+.etapaImg{
+    position: relative;
+    left: 200px;
+    top: 1085px;
+    font-size: 30px;
+    text-transform: uppercase; 
+    font-weight: bold;
+    color: white;
+    
+}
+
+.vitoriaImg{
+    position: relative;
+    left: 200px;
+    top: 1110px;
+    font-size: 30px;
+    text-transform: uppercase; 
+    font-weight: bold;
+    color: white;
+}
+
+.divNome{
+    width: 670px;
+}
+
+.divEndereco{
+    width: 670px;
+}
+
+.divEtapa{
+    width: 670px;
+}
+
+.divVitoria{
+    width: 670px;
+}
+
+.custom-file-input.selected:lang(en)::after {
+    content: "" !important;
+  }
+  .custom-file {
+    overflow: hidden;
+  }
+  .custom-file-input {
+    white-space: nowrap;
+  }
+
+@media (max-width:575px){
+    .cardLogin{
+      border-radius: 0;
+    }
+}
