@@ -1,3 +1,6 @@
+<?php
+    include_once("_BD/conecta_login.php");
+?>
 <!doctype html>
 <html lang="pt" class="bodyLogin">
     <head>
