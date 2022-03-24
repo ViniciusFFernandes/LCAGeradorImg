@@ -59,7 +59,7 @@ if ($_POST['operacao'] == "Sair") {
 	exit;
 }
 
-if ((time() - $_SESSION['ultima_atividade']) > 1800) {
+if ((time() - $_SESSION['ultima_atividade']) > 86400) {
     // última atividade foi mais de 10 minutos atrás
     session_unset();     // unset $_SESSION
     session_destroy();   // destroindo session data
