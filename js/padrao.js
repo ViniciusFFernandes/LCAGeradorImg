@@ -1,3 +1,25 @@
+$( document ).ready(function(){
+    jcrop = Jcrop.attach('imgUpload', {aspectRatio: 1});
+    //
+    jcrop.listen('crop.change',(widget,e) => {
+        $("#x").val(widget.pos.x);
+        $("#y").val(widget.pos.y);
+        $("#w").val(widget.pos.w);
+        $("#h").val(widget.pos.h);
+        //
+      });
+    //
+    $('#imgUpload').load(function(){
+        //
+        $("#w_o").val($(this).prop('width'));
+        $("#h_o").val($(this).prop('height'));
+        //
+        const rect = Jcrop.Rect.create(0,0,$(this).prop('width'),$(this).prop('height'));
+        const options = {};
+        jcrop.newWidget(rect,options);
+    });
+})
+
 function gerarImagem(){
     //
     //Preenche dados no html escondido
@@ -47,7 +69,42 @@ function carregaImg(){
     var file = new FileReader();
     file.onload = function(e) {
         document.getElementById("fotoPessoaImg").src = e.target.result;
+        document.getElementById("imgUpload").src = e.target.result;
     };      
+    // const size = getImgSize(document.getElementById("imgUpload"));
+    // altura = size['height'];
+    // largura = size['width'];
+    //
     file.readAsDataURL(foto);
     //
+    $("#recortandoFoto").hide();
+    $("#recortarFoto").show();
+    $("#btnRecortarFoto").show();
+    $("#btnModal").click();
+    //
+}
+
+function uploadCortaFoto(){
+    //
+    $("#recortandoFoto").show();
+    $("#recortarFoto").hide();
+    $("#btnRecortarFoto").hide();
+    //
+    $('#formPrincipal').ajaxSubmit({
+        dataType: 'html',
+        url: 'cortaImg.php',
+        resetForm: false,
+        success: function(data) {     
+            $("#btnCloseModal").click();
+            if($("#w").val() == '' || $("#h").val() == ''){
+                $("#fotoPessoaImg").attr("src", 'uploads/imgSemCorte.jpg');
+            }else{
+                $("#fotoPessoaImg").attr("src", 'uploads/imgCorte.jpg');
+            }
+            
+        },
+        error : function(){
+          alert('Erro ao recortar foto!');
+        }
+      });
 }

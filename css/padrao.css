@@ -66,9 +66,17 @@
     position: absolute;
 }
 
+.jcrop-stage{
+    z-index: 999;
+}
+
+.jcrop-shade{
+    z-index: 9999;
+}
+
 .fotoPessoaImg{
     position: relative;
-    left: 166px;
+    left: 189px;
     top: 393px;
 }
 

@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <!-- main css -->
         <link rel="stylesheet" href="css/padrao.css">
+        <link rel="stylesheet" href="https://unpkg.com/jcrop/dist/jcrop.css">
     </head>
     <body class="bodyLogin">
         <div class="container-fluid linhaLogin">
@@ -22,7 +23,14 @@
                     <center class="alinhaCentro"><img src="img/logoGrandeTransparente.png" class="img-fluid" width="75%"></center>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-7 col-12 cardLogin">
-                    <form class="alinhaCentro" action="_BD/conecta_login.php" method="POST" >
+                    <form class="alinhaCentro" action="#" method="POST" id="formPrincipal" enctype="multipart/form-data" >
+                        <input type="hidden" id="w_o" name="w_o">
+                        <input type="hidden" id="h_o" name="h_o">
+                        <input type="hidden" id="x" name="x">
+                        <input type="hidden" id="y" name="y">
+                        <input type="hidden" id="w" name="w">
+                        <input type="hidden" id="h" name="h">
+
                         <center><img src="img/logo.png" class="img-fluid" width="40%"></center>
                         <input type="hidden" id="operacao" name="operacao" value="logar">
                         <div class="form-group">
@@ -51,6 +59,34 @@
             </div>
         </div>
     </body>
+    <button type="button" class="btn btn-primary d-none" id="btnModal" data-toggle="modal" data-target="#modalFoto"></button>
+    <div class="modal fade" id="modalFoto" tabindex="-1" role="dialog" aria-labelledby="modalFotoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalFotoLabel">Recortar Foto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnCloseModal">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="recortarFoto">
+                    <div class="com-12">
+                        <img src="img/pessoa.png" id="imgUpload">
+                    </div>
+                </div>
+                <div class="row" id="recortandoFoto" style="display:none;">
+                    <div class="com-12">
+                        Recortando foto aguarde...
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnRecortarFoto" onclick="uploadCortaFoto()">Finalizar</button>
+            </div>
+            </div>
+        </div>
+    </div>
 
     <div class="divImg" id="htmlImgGerado">
         <div class="divImgPadrao">
@@ -58,7 +94,7 @@
         </div>
         <div class="divImgPessoa">
             <span class="fotoPessoaImg">
-                <img src="" id="fotoPessoaImg" width="750px">
+                <img src="" id="fotoPessoaImg" width="700px">
             </span>
         </div>
         <div class="">
@@ -104,4 +140,6 @@
     <script src="js/padrao.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/jcrop"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.3.0/dist/jquery.form.min.js"></script>
 </html>
